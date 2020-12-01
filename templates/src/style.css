@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 10vh 77.8vh 10vh;
+    grid-template-columns: 0.2fr 1fr;
+    grid-template-areas:
+        "header header"
+        "aside main"
+        "footer footer";
+}
+
+.header { 
+    grid-area: header;
+
+    height: 10vh;
+    background: #8d99ae;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.aside { 
+    grid-area: aside; 
+    background-color: #98c1d9;
+    padding: 10px;
+    text-align: center;
+}
+
+.main { 
+    grid-area: main;
+    background-color: #98c1d9;
+    padding: 10px;
+}
+
+.footer { 
+    grid-area: footer; 
+    background-color: #8d99ae;
+    height: 10vh;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer-text{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18pt;
+}
+
+.button{
+    font-size: 15pt;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.button {
+    width: 200px;
+    background-color: #B1B4B5; /* Green */
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+}       
+
+.button:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+
+#mapid { height: 100%; width: 100%; border: 2px solid black; border-radius: 10px; }

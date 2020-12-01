@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PI5 - DOJOT MQTT</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+
+    <link rel="stylesheet" href="./src/style.css">
+    
+</head>
+<body>
+
+    <div class="grid-container">
+
+        <div class="header">
+            <h2>PI5 - Dojot MQTT</h2>
+        </div>
+
+        <div class="aside">
+            <h3>Exemplos</h3>
+            <br>
+            <button class="button" value="morro"    onclick="botao_clicado(this)"> Morro do Moreno </button><br>
+            <button class="button" value="convento" onclick="botao_clicado(this)"> Convento da Penha </button><br>
+            <button class="button" value="ilha"     onclick="botao_clicado(this)"> Ilha do Boy </button><br>
+            <button class="button" value="cristo"   onclick="botao_clicado(this)"> Cristo Redentor </button><br>
+        </div>
+
+        <div class="main">
+            <div id="mapid"></div>
+        </div>
+        
+        <div class="footer">
+
+            <div class="footer-text">
+                <p>Latitude: <span class="var_latitude"></span></p>
+                <p>Longitude: <span class="var_longitude"></span></p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+    
+
+    <!-- FrameWork de Request -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+
+    <script src="./src/script.js"></script>
+
+
+</body>
+</html>
