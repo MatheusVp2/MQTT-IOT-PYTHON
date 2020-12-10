@@ -31,6 +31,13 @@
             <button class="button" value="convento" onclick="botao_clicado(this)"> Convento da Penha </button><br>
             <button class="button" value="ilha"     onclick="botao_clicado(this)"> Ilha do Boy </button><br>
             <button class="button" value="cristo"   onclick="botao_clicado(this)"> Cristo Redentor </button><br>
+            <br>
+
+            <h3>Abertura da Porta</h3> <br>
+            <p><h4>Status: </h4> <span class="status_door">Atualizando</span></p><br>
+            <p><h4>Device: </h4> <span class="device_id">Atualizando</span></p><br>
+            <p><h4>Data:   </h4> <span class="open_date">Atualizando</span></p><br>
+            <p><h4>Hora:   </h4> <span class="open_hours">Atualizando</span></p><br>
         </div>
 
         <div class="main">
@@ -38,7 +45,6 @@
         </div>
         
         <div class="footer">
-
             <div class="footer-text">
                 <p>Latitude: <span class="var_latitude"></span></p>
                 <p>Longitude: <span class="var_longitude"></span></p>
@@ -61,6 +67,7 @@
 
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>    
     <script src="./src/script.js"></script>
 
 

@@ -31,7 +31,7 @@ app.config['MQTT_USERNAME'] = 'admin'
 app.config['MQTT_PASSWORD'] = 'admin'
 app.config['MQTT_KEEPALIVE'] = 10
 app.config['MQTT_TLS_ENABLED'] = False
-app.config['MQTT_LAST_WILL_TOPIC'] = '/admin/deb8e7/attrs'
+# app.config['MQTT_LAST_WILL_TOPIC'] = '/admin/83c241/attrs'
 app.config['MQTT_LAST_WILL_MESSAGE'] = ''
 app.config['MQTT_LAST_WILL_QOS'] = 0
 
@@ -57,10 +57,10 @@ def dash():
 def index():
 	return render_template('index.html')
 
-@app.route( '/device/<string:device>/attr/<string:attrs>', methods = ['GET'] )
-def device_attr_info(device, attrs):
+@app.route( '/device/<string:device>/attr/<string:attrs>/<int:qtd>', methods = ['GET'] )
+def device_attr_info(device, attrs, qtd):
 	# ENDPOINT -> /device/a68745/attr/geo
-	return jsonify( getDataDevice( device, attrs ) )
+	return jsonify( getDataDevice( device, attrs, qtd ) )
 
 
 # Logica para o Scoket Io

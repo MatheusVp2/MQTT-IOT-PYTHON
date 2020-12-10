@@ -8,10 +8,9 @@ const new_long = 0
 const var_latitude  = document.querySelector('.var_latitude')
 const var_longitude = document.querySelector('.var_longitude')
 
-const var_device    = document.querySelector('.device_id')
-const var_data      = document.querySelector('.open_date')
-const var_hora      = document.querySelector('.open_hours')
-const var_door      = document.querySelector('.status_door')
+const var_device = document.querySelector('.device_id')
+const var_data = document.querySelector('.open_date')
+const var_hora = document.querySelector('.open_hours')
 
 var_latitude.innerHTML  = new_lat
 var_longitude.innerHTML = new_long
@@ -88,11 +87,10 @@ function adicionaZero(numero){
         return numero; 
 }
 
-function atualizaInfoPorta(_device, _data, _hora, _stts){
+function atualizaInfoPorta(_device, _data, _hora){
     var_device.innerHTML = _device
     var_data.innerHTML   = _data
     var_hora.innerHTML   = _hora
-    var_door.innerHTML   = _stts
 }
 
 /**/
@@ -105,30 +103,25 @@ async function pegaUltimaAbertura() {
         var list_rele   = response.data.rele
         var index = 0
 
+        for( var i = 0 ; i < list_rele.length ; i++ ){
+            if( list_rele[i].value == "OPEN" ){
+                index = i;
+                break
+            }
+        }
+
         var api_device = list_device[index].value
         var api_ts     = list_rele[index].ts
-        var api_stts   = list_rele[index].value
 
         var now  = new Date( api_ts );
         var api_data = `${ adicionaZero( now.getDay().toString() ) }/${ adicionaZero( now.getMonth().toString() ) }/${now.getFullYear()}`
         var api_hora = `${ adicionaZero( now.getHours().toString() ) }:${ adicionaZero( now.getMinutes().toString() ) }:${ adicionaZero( now.getSeconds().toString() ) }`
-        
-
-        if( api_stts == "OPEN" ){
-           Swal.fire(
-              'Porta Aberta !',
-              `${api_data} ${api_hora}`,
-              'success'
-            ) 
-        }else if( api_stts == "CLOSE" ){
-            Swal.fire({
-              icon: 'error',
-              title: 'Porta Fechada !',
-              text: `${api_data} ${api_hora}`,
-            })
-        }
-
-        atualizaInfoPorta( api_device, api_data, api_hora, api_stts )
+        Swal.fire(
+          'Porta Aberta !',
+          `${api_data} ${api_hora}`,
+          'success'
+        )
+        atualizaInfoPorta( api_device, api_data, api_hora )
 
     } catch (error) {
         console.error(error);
